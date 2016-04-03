@@ -56,10 +56,9 @@ public class HomeController extends Controller {
         map.put("format","script");
         map.put("callback","surveycallback");
         JsonNode json = Json.mapper().valueToTree(map);
-
         try {
             final String[] resp = {""};
-            CompletionStage<Void> c = ws.url("http://appapns.www.gov.cn/govdata/survey.shtml").setMethod("POST").post(json).thenAccept(wsResponse -> {
+            ws.url("http://appapns.www.gov.cn/govdata/survey.shtml").setMethod("POST").post(json).thenAccept(wsResponse -> {
                 resp[0] = wsResponse.getBody();
             });
         }catch (Exception e){
