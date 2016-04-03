@@ -29,6 +29,9 @@ import java.util.concurrent.CompletionStage;
  * to the application's home page.
  */
 public class HomeController extends Controller {
+
+    final Logger.ALogger logger = Logger.of(this.getClass());
+
     @Inject
     WSClient ws;
 
@@ -52,7 +55,7 @@ public class HomeController extends Controller {
         map.put("answer","{}");
         map.put("name",name);
         map.put("phone",phone);
-        Logger.info("name:{}\t phone:{}",name,phone);
+        logger.info("name:{}\t phone:{}",name,phone);
         map.put("format","script");
         map.put("callback","surveycallback");
         JsonNode json = Json.mapper().valueToTree(map);
