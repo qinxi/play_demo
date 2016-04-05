@@ -1,28 +1,18 @@
 package controllers;
 
-import akka.stream.Materializer;
-import akka.stream.javadsl.Sink;
-import akka.stream.javadsl.Source;
-import akka.util.ByteString;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.TextNode;
-import models.User;
-import play.*;
+import play.Logger;
 import play.data.DynamicForm;
-import play.data.Form;
 import play.data.FormFactory;
 import play.libs.Json;
-import play.libs.ws.StreamedResponse;
 import play.libs.ws.WSClient;
-import play.mvc.*;
-
-import views.html.*;
+import play.mvc.Controller;
+import play.mvc.Result;
+import views.html.index;
 
 import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.CompletionStage;
 
 /**
  * This controller contains an action to handle HTTP requests
